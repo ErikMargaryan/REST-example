@@ -35,7 +35,7 @@ public class ControllerBadExample {
     }
 
 
-    @RequestMapping(value = "GETALLDEPARTMENTSINTHEWORLD")
+    @GetMapping(value = "GETALLDEPARTMENTSINTHEWORLD")
     public ResponseEntity<DepartmentsResponse> getAllDepartments() {
 
         List<DepartmentDto> departments = departmentService.getAllDepartments().stream()
@@ -46,7 +46,7 @@ public class ControllerBadExample {
     }
 
 
-    @RequestMapping(value = "GET-department-by-ID/{id}")
+    @GetMapping(value = "GET-department-by-ID/{id}")
     public ResponseEntity<DepartmentDto> getDepartmentById(@PathVariable Long id) {
         var departmentDto =
                 departmentService
@@ -58,7 +58,7 @@ public class ControllerBadExample {
     }
 
 
-    @RequestMapping(value = "{id}/getEmployeesByDepartmentId")
+    @GetMapping(value = "{id}/getEmployeesByDepartmentId")
     public ResponseEntity<EmployeesResponse> getEmployeesByDepartmentId(@PathVariable Long id) {
 
         List<EmployeeDto> employees = departmentService.getAllEmployeesByDepartmentId(id).stream()
@@ -69,7 +69,7 @@ public class ControllerBadExample {
     }
 
 
-    @RequestMapping(value = "DELETE-METHOD-BY-ID/{id}")
+    @GetMapping(value = "DELETE-METHOD-BY-ID/{id}")
     public ResponseEntity<Void> deleteDepartment(
             @ApiParam(name = "department id", required = true, example = "124") @PathVariable Long id) {
         departmentService.deleteDepartment(id);
@@ -77,7 +77,7 @@ public class ControllerBadExample {
         return ResponseEntity.noContent().build();
     }
 
-    @RequestMapping(value = "create_department")
+    @GetMapping(value = "create_department")
     public ResponseEntity<DepartmentDto> createDepartment(@RequestBody @Valid DepartmentDto department) {
         var entity = DepartmentMapper.toEntity(department);
         var body =
@@ -86,7 +86,7 @@ public class ControllerBadExample {
         return ResponseEntity.status(HttpStatus.CREATED).body(body);
     }
 
-    @RequestMapping(value = "UpdatingDepartmentWithId/{id}")
+    @GetMapping(value = "UpdatingDepartmentWithId/{id}")
     public ResponseEntity<DepartmentDto> updateDepartment(@RequestBody @Valid DepartmentDto department,
                                                           @PathVariable Long id) {
 
