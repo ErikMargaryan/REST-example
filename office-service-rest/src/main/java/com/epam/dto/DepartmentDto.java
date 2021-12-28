@@ -26,6 +26,4 @@ public class DepartmentDto extends RepresentationModel<DepartmentDto> {
     @NotBlank(message = "Department is not a department without its head")
     private String departmentHeadName;
 
-    @ApiModelProperty(value = "employees")
-    private List<Employee> employees;
 }

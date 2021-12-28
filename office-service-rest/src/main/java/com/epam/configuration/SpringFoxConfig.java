@@ -6,7 +6,7 @@ import org.springframework.hateoas.client.LinkDiscoverer;
 import org.springframework.http.MediaType;
 import org.springframework.plugin.core.OrderAwarePluginRegistry;
 import org.springframework.plugin.core.PluginRegistry;
-import org.springframework.stereotype.Component;
+
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -27,6 +27,7 @@ public class SpringFoxConfig {
                         .contact(new Contact("Nonna Hakobyan", "", "nonna_hakobyan@epam.com"))
                         .version("v1")
                         .build();
+
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo)
                 .groupName("Office Service")
